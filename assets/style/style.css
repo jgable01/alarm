@@ -1,0 +1,73 @@
+@import url(reset.css);
+:root {
+  --app-bg: #f2f3f4;
+  --app-bg-blue: #3487f3;
+  --app-bg-orange: #d47215;
+  --app-bg-purple: #6a1fc0;
+  --app-bg-dark: #323235;
+  --app-bg-green: #4dcc3c;
+  --app-blue-hover: #364ee6;
+  --app-red: #ff3c57;
+  --app-red-hover: #ff2846;
+}
+
+body {
+  background-color: var(--app-bg-dark);
+}
+
+.container {
+  height: auto;
+}
+
+.row1 {
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px;
+  font-weight: 600;
+  margin-top: 45vh;
+  padding: 23px;
+}
+
+.notify {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding: 10px;
+  display: none;
+}
+
+.row2 {
+  padding: 23px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: 35px;
+  font-weight: 600;
+}
+
+p {
+  color: #fff;
+}
+
+input[type=button].setalarm {
+  width: 125px;
+  height: 39px;
+  border-radius: 17px;
+  background-color: var(--app-bg-green);
+  color: #fff;
+  font-weight: 600;
+}
+
+input[type=text] {
+  width: 125px;
+  height: 39px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: #ffffff1a;
+  border-radius: 17px;
+  text-align: center;
+  color: #fff;
+  margin-right: 22px;
+}
