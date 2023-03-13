@@ -14,6 +14,7 @@ alarmTime.minute;
 const setAlarm = document.querySelector('.setalarm');
 const userTime = document.querySelector('.timein');
 const notifyAlarm = document.querySelector('.notify');
+const notifyTime = document.querySelector('.notifyText')
 setInterval(updates, 1000);
 
 function updates() {
@@ -28,9 +29,11 @@ setAlarm.addEventListener('click', () => {
 function activateAlarm() {
   try {
     if (userTime.value.substr(0, 2) <= 24 && userTime.value.substr(3, 2) <= 60) {
+      resetAlarm();
       alarmTime.hour = userTime.value.substr(0, 2);
       alarmTime.minute = userTime.value.substr(3, 2);
       notifyAlarm.style.display = 'flex';
+      notifyTime.innerHTML += ` ${alarmTime.hour}:${alarmTime.minute}` 
       console.log(`Alarm set for: ${alarmTime.hour}:${alarmTime.minute}`);
     }
   } catch (err) {
@@ -60,6 +63,7 @@ function updateSeconds() {
 function resetAlarm() {
   alarmTime.hour = '';
   alarmTime.minute = '';
+  notifyTime.innerHTML = '<i class="fa-solid fa-bell"></i>';
   notifyAlarm.style.display = 'none';
 }
 updateSeconds();
