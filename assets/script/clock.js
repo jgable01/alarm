@@ -35,8 +35,11 @@ function activateAlarm() {
       notifyAlarm.style.display = 'flex';
       notifyTime.innerHTML += ` ${alarmTime.hour}:${alarmTime.minute}` 
       console.log(`Alarm set for: ${alarmTime.hour}:${alarmTime.minute}`);
+    } else {
+      userTime.style.border = '1px solid #ff2846';
     }
   } catch (err) {
+    setAlarm.style.border = 'thick solid #ff2846';
     throw ("Invalid Input");
   }
 }
@@ -66,6 +69,7 @@ function resetAlarm() {
   alarmTime.minute = '';
   notifyTime.innerHTML = '<i class="fa-solid fa-bell"></i>';
   notifyAlarm.style.display = 'none';
+  userTime.style.border = '';
 }
 updateSeconds();
 
