@@ -12,7 +12,8 @@ let alarmTime = {};
 alarmTime.hour;
 alarmTime.minute;
 const setAlarm = document.querySelector('.setalarm');
-const userTime = document.querySelector('.timein')
+const userTime = document.querySelector('.timein');
+const notifyAlarm = document.querySelector('.notify');
 setInterval(updates, 1000);
 
 function updates() {
@@ -29,6 +30,7 @@ function activateAlarm() {
     if (userTime.value.substr(0, 2) <= 24 && userTime.value.substr(3, 2) <= 60) {
       alarmTime.hour = userTime.value.substr(0, 2);
       alarmTime.minute = userTime.value.substr(3, 2);
+      notifyAlarm.style.display = 'flex';
       console.log(`Alarm set for: ${alarmTime.hour}:${alarmTime.minute}`);
     }
   } catch (err) {
@@ -41,6 +43,7 @@ function checkAlarm() {
   if (date.getHours().toString().padStart(2, '0') === alarmTime.hour
     && date.getMinutes().toString().padStart(2, '0') === alarmTime.minute) {
     console.log('ring ring ring');
+    resetAlarm();
   }
 }
 
@@ -52,6 +55,12 @@ function updateSeconds() {
   const seconds = date.getSeconds().toString().padStart(2, '0');
   let currentTime = hour + ":" + minutes + ':' + seconds;
   timer.innerText = currentTime;
+}
+
+function resetAlarm() {
+  alarmTime.hour = '';
+  alarmTime.minute = '';
+  notifyAlarm.style.display = 'none';
 }
 updateSeconds();
 
