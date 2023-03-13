@@ -46,6 +46,7 @@ function checkAlarm() {
   if (date.getHours().toString().padStart(2, '0') === alarmTime.hour
     && date.getMinutes().toString().padStart(2, '0') === alarmTime.minute) {
     console.log('ring ring ring');
+    const sound = document.querySelector('.alarmSound').play();
     resetAlarm();
   }
 }
